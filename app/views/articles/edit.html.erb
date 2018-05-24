@@ -1,0 +1,11 @@
+<%= @article.title %>
+<%= @article.body %>
+
+<%= form_for @article, url: {action: "update"}, html: {class: "nifty_form"} do |f| %>
+  <%= f.text_field :title %>
+  <%= f.text_area :body, size: "60x12" %>
+  <%= f.submit "Update" %>
+<% end %>
+
+
+<%=params.inspect %>
