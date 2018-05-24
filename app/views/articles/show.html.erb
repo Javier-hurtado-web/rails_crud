@@ -2,3 +2,27 @@
 
 <p><%= @article.body %></p>
 
+
+
+
+<% if @post.errors.any? %>
+    <% @post.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+<% end %>
+
+
+
+<%= form_for @post, url: {controller: 'posts' ,action: "create"}, html: {class: "nifty_form"} do |f| %>
+  
+  <%= f.text_area :text, size: "60x12" %>
+  <%= f.submit "Create" %>
+<% end %>
+
+
+
+<% @article_posts.each do |post| %>
+
+<p><%= post.text %></p>
+
+<% end %>

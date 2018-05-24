@@ -1,8 +1,11 @@
 <h1>zdarecek</h1>
 
 
-
-
+<% if @article.errors.any? %>
+    <% @article.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+<% end %>
 <%= form_for @article, url: {action: "create"}, html: {class: "nifty_form"} do |f| %>
   <%= f.text_field :title %>
   <%= f.text_area :body, size: "60x12" %>
@@ -10,4 +13,3 @@
 <% end %>
 
 
-<%=params.inspect %>

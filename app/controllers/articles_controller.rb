@@ -11,6 +11,7 @@ class ArticlesController < ApplicationController
 
 	def create
 	    @article = Article.new(permited)
+	    
 	    if @article.save
 	    redirect_to new_article_path(@article)
 	    else
@@ -19,7 +20,9 @@ class ArticlesController < ApplicationController
 	end
 
 	def show
+		@post = Post.new
 		@article = Article.find(params[:id])
+		@article_posts = @article.post.all
 	end
 
 
