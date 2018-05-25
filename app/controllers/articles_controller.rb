@@ -20,9 +20,11 @@ class ArticlesController < ApplicationController
 	end
 
 	def show
+		@image = Image.new
 		@post = Post.new
 		@article = Article.find(params[:id])
 		@article_posts = @article.post.all
+		@images = @article.image.all
 	end
 
 

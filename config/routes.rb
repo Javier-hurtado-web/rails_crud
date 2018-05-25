@@ -17,6 +17,6 @@ delete '/article/:id/', to: 'articles#destroy', as: 'article_delete'
 post '/article/:id/post', to: 'posts#create', as: 'post_create'
 
 
-
+post 'article/:id/image', to: 'images#create'
 
 end

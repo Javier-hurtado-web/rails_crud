@@ -19,10 +19,20 @@
   <%= f.submit "Create" %>
 <% end %>
 
-
-
+<%= form_for @image, url: { controller: 'images', action: 'create'},html: { multipart: true } do |f| %>
+ <%= f.file_field :url, :multiple => true %>
+  <%= f.submit %>
+<%end%>
 <% @article_posts.each do |post| %>
 
 <p><%= post.text %></p>
 
 <% end %>
+
+
+
+<% @images.each do |image| %>
+<%= image.url.inspect %>
+
+
+<%end%>
