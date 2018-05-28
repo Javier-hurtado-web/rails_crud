@@ -23,9 +23,14 @@
  <%= f.file_field :url, :multiple => true %>
   <%= f.submit %>
 <%end%>
+
 <% @article_posts.each do |post| %>
 
-<p><%= post.text %></p>
+<p><%= post.text %></p> 
+<% if can? :update, post %>
+ <%=  link_to "Edit", edit_post_path(post) %>
+<% end %>
+<hr>
 
 <% end %>
 
