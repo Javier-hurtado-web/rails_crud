@@ -9,7 +9,19 @@
   </head>
 
   <body>
-
+   
+    <% if user_signed_in? %>
+        <strong><%=current_user.email%></strong>a
+        <%= link_to destroy_user_session_path, method: :delete do %>
+        Odhlásit
+        <% end %>
+        
+      <% else %>
+     <%= link_to new_user_session_path do %>
+        Přihlásit
+        <% end %>
+    <% end %>
+    
      <p class="notice"><%= notice %></p>
      <p class="alert"><%= alert %></p>
 
