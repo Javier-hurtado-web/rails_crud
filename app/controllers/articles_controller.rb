@@ -1,10 +1,10 @@
 class ArticlesController < ApplicationController
-	
+	include Clanky
 	
 	before_action :authenticate_user!
 
     def index
-    	@articles = Article.all
+    	@articles = Clanky::vsechny_clanky
     end
 
 
