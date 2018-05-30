@@ -10,9 +10,11 @@ class ArticlesController < ApplicationController
 
 	def new
 		@article = Article.new
+		2.times {@article.tag.build}
 	end
 
 	def create
+
 	    @article = Article.new(permited)
 	    
 	    if @article.save
@@ -23,9 +25,11 @@ class ArticlesController < ApplicationController
 	end
 
 	def show
+		
 		@image = Image.new
 		@post = Post.new
 		@article = Article.find(params[:id])
+		@tags = @article.tag.all		
 		@article_posts = @article.post.all
 		@images = @article.image.all
 	end
@@ -52,6 +56,10 @@ class ArticlesController < ApplicationController
 	private 
 
 	def permited
-		params.require(:article).permit(:title, :body)
+
+		params.require(:article).permit(:title, :body, tag_attributes: ['name'] )
+		
+
+		
 	end
 end
