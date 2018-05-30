@@ -10,7 +10,7 @@ class ArticlesController < ApplicationController
 
 	def new
 		@article = Article.new
-		2.times {@article.tag.build}
+		5.times { @article.tag.new }
 	end
 
 	def create
