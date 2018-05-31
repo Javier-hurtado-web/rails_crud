@@ -5,6 +5,8 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+# hezčí console při výpisu
+ gem "awesome_print", require:"ap"
 #přihlašování
 gem 'devise'
 #can can can
@@ -43,6 +45,7 @@ group :development, :test do
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
   gem 'dotenv-rails'
+  # gem 'pry-rails'
 end
 
 group :development do
@@ -50,6 +53,7 @@ group :development do
   gem 'web-console', '>= 3.3.0'
   gem "better_errors"
   gem "binding_of_caller"
+
 
 end
 
