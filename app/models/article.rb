@@ -8,4 +8,13 @@ accepts_nested_attributes_for :tag, reject_if: ->(attributes){ attributes['name'
 
 validates :body, :title , length: { minimum: 1, maximum: 500 }
 
+
+
+
+def get_body
+    self.body
+end
+
+
+
 end
